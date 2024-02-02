@@ -1,11 +1,12 @@
-# Compiled class file
+# Created by https://www.gitignore.io
+
+### Java ###
+customer-service-domain/src/main/resources/git.properties
+docker/ca-fake.cer
+docker/be.pagseguro.srv.intranet
+docker/be.dev.pagseguro.srv.intranet.cer
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
+classes
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -13,12 +14,154 @@
 # Package Files #
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-replay_pid*
+
+v4.*
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+**/out/**
+
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
+
+# User-specific stuff:
+.idea/**
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
+
+# Gradle:
+#.idea/gradle.xml
+#.idea/libraries
+build/
+#gradle/
+#gradle-app.setting
+#gradle-wrapper.jar
+
+# Mongo Explorer plugin:
+# .idea/mongoSettings.xml
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+
+### Eclipse ###
+*.pydevproject
+.metadata
+.gradle/**
+.gradle/buildOutputCleanup/**
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin
+.event
+
+# TeXlipse plugin
+.texlipse
+
+
+### Maven ###
+event/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+
+# ci docker
+!.ci/event/jenkins/data/jobs/*/config.xml
+!.ci/event/jenkins/data/plugins/
+!.ci/event/jenkins/data/.gitconfig
+!.ci/event/jenkins/data/jenkins.*
+!.ci/event/jenkins/data/hudson.*
+!.ci/event/jenkins/data/org.*
+!.ci/event/jenkins/data/plugins
+ci/event/jenkins/data/*
+
+
+ci/event/postgres
+ci/event/sonar
+
+!event/sonar/extensions/plugins
+
+
+# compressed
+*.tar.gz
+*.tar.bz2
+*.tar
+*.zip
+*.rar
+*.tar.xz
+
+
+**/target
+v4.**
+/.gradle/
+rerun.txt
+h2db.mv.db
+h2db.trace.db
+
+# JEnv
+.java-version
+
+#gRPC
+src/main/java/ps/customer/domain/integration/alternative/customer/services/
+src/main/java/ps/customer/domain/integration/alternative/customer/model/
