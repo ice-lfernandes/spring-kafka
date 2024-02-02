@@ -1,2 +1,2 @@
 # spring-kafka
-Projeto de Exemplu utilizando Spring e Kakfa
+Projeto de Exemplo utilizando Spring e Kakfa
