@@ -1,8 +1,8 @@
 package br.com.ldf.pix.produtor.controller;
 
-import com.alura.pix.dto.PixDTO;
-import com.alura.pix.dto.PixStatus;
-import com.alura.pix.service.PixService;
+import br.com.ldf.pix.produtor.dto.PixDTO;
+import br.com.ldf.pix.produtor.dto.PixStatus;
+import br.com.ldf.pix.produtor.service.PixService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,10 +22,10 @@ public class PixController {
     @PostMapping
     public PixDTO salvarPix(@RequestBody PixDTO pixDTO) {
 
-        pixDTO.setIdentifier(UUID.randomUUID().toString());
-        pixDTO.setDataTransferencia(LocalDateTime.now());
+        pixDTO.setCode(UUID.randomUUID().toString());
+        pixDTO.setDate(LocalDateTime.now());
         pixDTO.setStatus(PixStatus.EM_PROCESSAMENTO);
 
-        return pixService.salvarPix(pixDTO);
+        return pixService.save(pixDTO);
     }
 }

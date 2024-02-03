@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class PixDTO {
-    private String id;
+    private String code;
     private String originKey;
     private String destinationKey;
     private Double amount;
