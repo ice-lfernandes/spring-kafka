@@ -8,6 +8,11 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
 - Postgres Local: [docker-compose.yml](https://github.com/ice-lfernandes/docker-postgres/blob/master/docker-compose.yml)
   - ```docker-compose up -d```
 
+### Ferramentas de Apoio
+- Confluent Local: 
+  - ```http://localhost:9021```
+  ![img.png](img.png)
+
 ### Exemplos de Caso de Uso
 - <strong>Simple-Kafka-Consumer-Producer:</strong><br>
   Simples implementação de um produtor e consumidor de mensagens utilizando o Kafka com eventos formatos Json
@@ -43,4 +48,5 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
     - Http Status: 202 ACCEPTED
     - Pix Processado:
       ![image](https://github.com/ice-lfernandes/spring-kafka/assets/66133397/34c30457-4812-444f-a03d-4ebb0046d6a9)
-
+    - Monitoria de Eventos Confluent
+    ![img_1.png](img_1.png)
