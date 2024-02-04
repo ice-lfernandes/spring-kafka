@@ -25,7 +25,7 @@ public class Pix {
     private PixStatus status;
 
     public static Pix toEntity(PixDTO pixDTO) {
-        Pix pix = new Pix();
+        var pix = new Pix();
         pix.setCode(pixDTO.getCode());
         pix.setOriginKey(pixDTO.getOriginKey());
         pix.setDestinationKey(pixDTO.getDestinationKey());
