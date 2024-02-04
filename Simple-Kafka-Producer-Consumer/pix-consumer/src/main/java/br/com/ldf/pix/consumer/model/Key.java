@@ -1,4 +1,4 @@
-package br.com.ldf.pix.produtor.model;
+package br.com.ldf.pix.consumer.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

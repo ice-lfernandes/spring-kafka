@@ -23,7 +23,7 @@ public class PixController {
     public PixDTO createPix(@RequestBody PixDTO pixDTO) {
         pixDTO.setCode(UUID.randomUUID().toString());
         pixDTO.setDate(LocalDateTime.now());
-        pixDTO.setStatus(PixStatus.EM_PROCESSAMENTO);
+        pixDTO.setStatus(PixStatus.PROCESSING);
         return pixService.save(pixDTO);
     }
 }
