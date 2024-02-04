@@ -41,6 +41,9 @@ public class ConsumerKafkaConfig {
         // configuração para que o consumidor não comite automaticamente
         // por default ele é true e ele só da o ACK quando finaliza o método que está consumindo o evento
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
+        // configuração que adiciona intercetpor para monitoramento no confluence control-center
+        props.put(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG,
+                "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor");
 
         return new DefaultKafkaConsumerFactory<>(props);
     }
