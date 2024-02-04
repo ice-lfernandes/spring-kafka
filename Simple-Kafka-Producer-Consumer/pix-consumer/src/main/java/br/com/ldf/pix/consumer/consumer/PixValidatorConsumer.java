@@ -10,8 +10,8 @@ import br.com.ldf.pix.consumer.repository.PixRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.annotation.RetryableTopic;
 import org.springframework.retry.annotation.Backoff;
-import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Component;
 
 import static java.util.Objects.isNull;
@@ -27,10 +27,11 @@ public class PixValidatorConsumer {
     @KafkaListener(topics = "pix-topic", groupId = "consumer-group-pix-validator",
             autoStartup = "true",
             containerFactory = "kafkaListenerContainerFactory")
-    @Retryable(
+    @RetryableTopic(
             backoff = @Backoff(delay = 1000), // quantidade de tempo entre as tentativas
-            maxAttempts = 1, // quantidade maxima de tentativas
-            retryFor = KeyNotFoundException.class // exception que irá disparar a tentativa. Obs: Idealmente, deveria ser uma exception mais específica para cenários de erros que podem ser recuperáveis
+            attempts = "5", // quantidade maxima de tentativas
+            autoCreateTopics = "true", // cria novo tóico de retentativas
+            include = KeyNotFoundException.class // exception que irá disparar a tentativa. Obs: Idealmente, deveria ser uma exception mais específica para cenários de erros que podem ser recuperáveis
     )
     public void process(final PixDTO pixDTO) {
         log.info("stage=pix-process-init, code={}, status={}", pixDTO.getCode(), pixDTO.getStatus());
