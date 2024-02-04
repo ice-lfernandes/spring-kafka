@@ -16,8 +16,16 @@ public class PixService {
     private final PixRepository pixRepository;
     private final KafkaTemplate<String, PixDTO> kafkaTemplate;
 
-    public PixDTO save(PixDTO pixDTO) {
-        pixRepository.save(Pix.toEntity(pixDTO));
+    public PixDTO save(final PixDTO pixDTO) {
+        pixRepository.save(Pix.builder()
+                .code(pixDTO.getCode())
+                .originKey(pixDTO.getOriginKey())
+                .destinationKey(pixDTO.getDestinationKey())
+                .amount(pixDTO.getAmount())
+                .status(pixDTO.getStatus())
+                .date(pixDTO.getDate())
+                .build()
+        );
         kafkaTemplate.send("pix-topic", pixDTO.getCode(), pixDTO);
         log.info("stage=pix-created, code={}", pixDTO.getCode());
         return pixDTO;
