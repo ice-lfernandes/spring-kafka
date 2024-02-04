@@ -11,3 +11,29 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
 ### Exemplos de Caso de Uso
 - <strong>Simple-Kafka-Consumer-Producer:</strong><br>
   Simples implementação de um produtor e consumidor de mensagens utilizando o Kafka com eventos formatos Json
+
+  Projeto implementa uma simples arquitetura de transação de PIX, aonde existe um produtor e consumidor.
+  - Produtor:
+    - Possui Endpoints para criação intenções de transações PIX e permite criação de novas chaves PIX
+    - Após criação de intenção de PIX, é produzido um evento para ser consumido por validador que irá processar transação
+  - Consumer:
+    - Possui listener de tópico que ouve evento de criação de intenção pix e realiza processamento do mesmo
+  
+  <strong>Antes de Iniciar</strong>
+  
+    - Criar Chaves pix para realizar transações no projeto <strong>Pix-Producer</strong>
+    - Request Exemplo:
+      ```
+        {
+           "value" : "123"
+        }
+      ```
+    - Criação de intenção de transação Pix:
+    - Request Exemplo:
+      ```
+        {
+          "originKey" : "123",
+          "destinationKey": "456",
+          "amount": 500
+        }
+      ```
