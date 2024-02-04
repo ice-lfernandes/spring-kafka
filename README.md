@@ -28,8 +28,9 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
            "value" : "123"
         }
       ```
-    - Criação de intenção de transação Pix:
-    - Request Exemplo:
+  <strong>Como usar?</strong>
+  - Criação de intenção de transação Pix:
+  - Request Exemplo:
       ```
         {
           "originKey" : "123",
@@ -37,3 +38,9 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
           "amount": 500
         }
       ```
+  <strong>Resultado Esperado</strong>
+  - Casos de Sucesso:
+    - Http Status: 202 ACCEPTED
+    - Pix Processado:
+      ![image](https://github.com/ice-lfernandes/spring-kafka/assets/66133397/34c30457-4812-444f-a03d-4ebb0046d6a9)
+
