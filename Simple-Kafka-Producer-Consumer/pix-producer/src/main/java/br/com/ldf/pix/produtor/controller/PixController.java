@@ -27,6 +27,7 @@ public class PixController {
         pixDTO.setCode(UUID.randomUUID().toString());
         pixDTO.setDate(LocalDateTime.now());
         pixDTO.setStatus(PixStatus.PROCESSING);
+        pixService.save(pixDTO);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(pixDTO);
     }
 }
