@@ -5,7 +5,8 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
 
 - Kafka Local: [docker-compose.yml](https://github.com/ice-lfernandes/docker-images/blob/master/kafka/docker-compose.yml)
   - ```docker-compose up -d```
-- 
+- Postgres Local: [docker-compose.yml](https://github.com/ice-lfernandes/docker-postgres/blob/master/docker-compose.yml)
+  - ```docker-compose up -d```
 
 ### Exemplos de Caso de Uso
 - <strong>Simple-Kafka-Consumer-Producer:</strong><br>
