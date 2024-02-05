@@ -26,14 +26,16 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
     - Possui listener de tópico que ouve evento de criação de intenção pix e realiza processamento do mesmo
   
   <strong>Antes de Iniciar</strong>
-    - Criar Chaves pix para realizar transações no projeto Pix-Producer
-    - Request Exemplo:
+  
+  - Criar Chaves pix para realizar transações no projeto Pix-Producer
+  - Request Exemplo:
       ```
         {
            "value" : "123"
         }
       ```
   <strong>Como usar?</strong>
+  
   - Criação de intenção de transação Pix:
   - Request Exemplo:
       ```
@@ -56,9 +58,9 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
   - Fazer um somatório de total de transações pix por chave de origem
   - Envio de pix para tópico de fraudes em cenário de pix que passam de R$ 1000,00
 
-   <strong>Antes de Iniciar</strong>
-    - Criar Chaves pix para realizar transações no projeto Pix-Producer
-    - Request Exemplo:
+  <strong>Antes de Iniciar</strong>
+  - Criar Chaves pix para realizar transações no projeto Pix-Producer
+  - Request Exemplo:
       ```
         {
            "value" : "123"
