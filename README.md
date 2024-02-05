@@ -27,7 +27,7 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
   
   <strong>Antes de Iniciar</strong>
   
-    - Criar Chaves pix para realizar transações no projeto <strong>Pix-Producer</strong>
+    - Criar Chaves pix para realizar transações no projeto Pix-Producer
     - Request Exemplo:
       ```
         {
@@ -59,7 +59,7 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
 
    <strong>Antes de Iniciar</strong>
   
-    - Criar Chaves pix para realizar transações no projeto <strong>Pix-Producer</strong>
+    - Criar Chaves pix para realizar transações no projeto Pix-Producer
     - Request Exemplo:
       ```
         {
