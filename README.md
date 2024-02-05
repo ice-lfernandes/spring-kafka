@@ -50,3 +50,9 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
       ![image](https://github.com/ice-lfernandes/spring-kafka/assets/66133397/34c30457-4812-444f-a03d-4ebb0046d6a9)
     - Monitoria de Eventos Confluent
     ![img_1.png](img_1.png)
+
+- <strong>Kafka Stream</strong><br>
+  Implementação de uso de Kafka Stream em cenários:
+  - Fazer um somatório de total de transações pix por chave de origem
+  - Envio de pix para tópico de fraudes em cenário de pix que passam de R$ 1000,00
+
