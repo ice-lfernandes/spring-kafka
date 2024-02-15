@@ -81,5 +81,10 @@ Projeto de Exemplo utilizando Spring e Kakfa para diferentes tipos de uso.
   ![image](https://github.com/ice-lfernandes/spring-kafka/assets/66133397/22821ee0-b29b-4260-9110-1eb914745cf2)
   ![image](https://github.com/ice-lfernandes/spring-kafka/assets/66133397/637d65da-2bcb-4897-955c-3cecc789d265)
   
+### Kafka with Schema Registry
+  Implementação de uso de Schema Registry para validação de eventos e garantia de compatibilidade entre versões de eventos
+
+  <strong>Antes de Iniciar</strong>
+  - Criar Chaves pix
 
 
