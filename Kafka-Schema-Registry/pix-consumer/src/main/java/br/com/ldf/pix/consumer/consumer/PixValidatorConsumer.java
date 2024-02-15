@@ -1,5 +1,6 @@
 package br.com.ldf.pix.consumer.consumer;
 
+import br.com.ldf.pix.avro.PixRecord;
 import br.com.ldf.pix.consumer.dto.PixDTO;
 import br.com.ldf.pix.consumer.dto.PixStatus;
 import br.com.ldf.pix.consumer.exception.KeyNotFoundException;
@@ -24,7 +25,7 @@ public class PixValidatorConsumer {
     private final KeyRepository keyRepository;
     private final PixRepository pixRepository;
 
-    @KafkaListener(topics = "pix-topic", groupId = "consumer-group-pix-validator",
+    @KafkaListener(topics = "pix-topic-avro", groupId = "consumer-group-pix-validator",
             autoStartup = "true",
             containerFactory = "kafkaListenerContainerFactory")
     @RetryableTopic(
@@ -33,13 +34,13 @@ public class PixValidatorConsumer {
             autoCreateTopics = "true", // cria novo tóico de retentativas
             include = KeyNotFoundException.class // exception que irá disparar a tentativa. Obs: Idealmente, deveria ser uma exception mais específica para cenários de erros que podem ser recuperáveis
     )
-    public void process(final PixDTO pixDTO) {
-        log.info("stage=pix-process-init, code={}, status={}", pixDTO.getCode(), pixDTO.getStatus());
+    public void process(final PixRecord pixRecord) {
+        log.info("stage=pix-process-init, code={}, status={}", pixRecord.getCode(), pixRecord.getStatus());
 
-        Pix pix = pixRepository.findByCode(pixDTO.getCode());
+        Pix pix = pixRepository.findByCode(pixRecord.getCode());
 
-        Key origin = keyRepository.findByValue(pixDTO.getOriginKey());
-        Key destination = keyRepository.findByValue(pixDTO.getDestinationKey());
+        Key origin = keyRepository.findByValue(pixRecord.getOriginKey());
+        Key destination = keyRepository.findByValue(pixRecord.getDestinationKey());
 
         if (isNull(origin) || isNull(destination)) {
             pix.setStatus(PixStatus.ERROR);

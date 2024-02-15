@@ -1,6 +1,9 @@
 package br.com.ldf.pix.consumer.config;
 
+import br.com.ldf.pix.avro.PixRecord;
 import br.com.ldf.pix.consumer.dto.PixDTO;
+import io.confluent.kafka.serializers.KafkaAvroDeserializer;
+import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,11 +25,13 @@ public class ConsumerKafkaConfig {
     private String bootstrapAddress;
 
     @Bean
-    public ConsumerFactory<String, PixDTO> consumerFactory() {
+    public ConsumerFactory<String, PixRecord> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+        props.put(KafkaAvroDeserializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
+        props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, "true");
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
         // configuração do número máximo de registros que o consumidor pode buscar por vez que bater no cluster
@@ -49,11 +54,10 @@ public class ConsumerKafkaConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, PixDTO> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, PixDTO> factory =
+    public ConcurrentKafkaListenerContainerFactory<String, PixRecord> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, PixRecord> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
-        factory.setRecordMessageConverter(new StringJsonMessageConverter());
         return factory;
     }
 }
